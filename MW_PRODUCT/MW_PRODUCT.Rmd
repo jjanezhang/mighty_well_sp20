@@ -1,0 +1,26 @@
+---
+title: "MW_PRODUCTREVIEWS"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(stringr)
+library(here)
+library(tidyverse)
+library(dplyr)
+library(sjlabelled)
+library(maps)
+library(ggraph)
+library(zipcode)
+library(tidygraph)
+library(sf)
+library(albersusa)
+library(RMySQL)
+```
+
+```{r}
+data_original = read.csv("PICCPerfectSizing.csv")
+view(data_original)
+```
+
