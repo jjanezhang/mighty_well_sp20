@@ -20,7 +20,10 @@ library(RMySQL)
 ```
 
 ```{r}
-data_original = read.csv("PICCPerfectSizing.csv")
-view(data_original)
+data_delete = read.csv("MW-DELETED.csv")
+data_notpub = read.csv("MW-ALLNOTPUBLISHED.csv")
+data_pub = read.csv("MW-ALLPUBLISHED.csv")
+product1 <- merge(data_delete,data_notpub, )
+
 ```
 
