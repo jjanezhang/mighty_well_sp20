@@ -19,11 +19,26 @@ library(albersusa)
 library(RMySQL)
 ```
 
-```{r}
+```{r, cleaning part 1}
 data_delete = read.csv("MW-DELETED.csv")
+data_delete <- data_delete%>%
+  mutate(type = "deleted")
+  
 data_notpub = read.csv("MW-ALLNOTPUBLISHED.csv")
-data_pub = read.csv("MW-ALLPUBLISHED.csv")
-product1 <- merge(data_delete,data_notpub, )
+data_notpub<- data_notpub%>%
+  mutate(type= "not published")
 
+data_pub = read.csv("MW-ALLPUBLISHED.csv")
+data_pub <- data_pub %>%
+  mutate(type="published")
+product <- rbind(data_delete,data_notpub,data_pub)
+
+write.csv(product, 'product.csv')
+
+```
+
+```{r, cleaning part 2 w/ gender}
+product_clean = read.csv("product.csv")
+  
 ```
 
